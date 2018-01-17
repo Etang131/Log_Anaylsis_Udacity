@@ -67,6 +67,9 @@ select authors.name, count(articles.author) as views from articles, log, authors
 where log.path = concat('/article/',articles.slug) and articles.author = authors.id
 group by authors.name order by views desc;
 
+create view least_popular_articles as select title, count(title) as views from articles,log where log.path = concat('/article/',articles.slug) group by title order by views asc;
+
+create view least_popular_authors as select authors.name, count(articles.author) as views from articles, log, authors where log.path = concat('/article/',articles.slug) and articles.author = authors.id group by authors.name order by views asc;
 
 create view log_stats as
 select Date,Total,Error, (Error::float*100)/Total::float as Percent from
