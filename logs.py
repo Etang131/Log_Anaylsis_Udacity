@@ -11,8 +11,6 @@ def connect(dbname="news"):
     except:
         print("Unable to Connect to Database")
 
-"""Next Five statments include basic stats about the articles and authors """
-
 
 def popular_article():
     """Prints the three most popular articles of all time"""
@@ -39,7 +37,6 @@ def popular_authors():
 
 
 def least_popular_article():
-    """Prints the three least viewed articles"""
     db, c = connect()
     query = "select * from least_popular_articles limit 3"
     c.execute(query)
@@ -71,10 +68,8 @@ def log_stats():
     db.close()
     print "\nDays with more than 1% of errors:\n"
     for i in range(0, len(result), 1):
-        print str(result[i][0]) + " - " + str(round(result[i][3], 2))
-        +"% errors"
+        print str(result[i][0]) + " - " + str(round(result[i][3], 2))+"% errors"
 
-"""Posts all the stats """
 
 if __name__ == '__main__':
     popular_article()
@@ -83,3 +78,4 @@ if __name__ == '__main__':
     least_popular_authors()
     log_stats()
     print "\nDatebase Stats Completed!\n"
+
