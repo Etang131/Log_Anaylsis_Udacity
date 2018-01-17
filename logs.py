@@ -71,7 +71,8 @@ def log_stats():
     db.close()
     print "\nDays with more than 1% of errors:\n"
     for i in range(0, len(result), 1):
-        print str(result[i][0])+ " - "+str(round(result[i][3], 2))+"% errors"
+        print str(result[i][0]) + " - " + str(round(result[i][3], 2))
+        +"% errors"
 
 """Posts all the stats """
 
