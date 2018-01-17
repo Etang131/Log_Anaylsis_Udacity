@@ -2,6 +2,7 @@
 import psycopg2
 """Log Anaylsis of newsdata.sql files that provides stats on the articles."""
 
+
 def connect(dbname="news"):
     try:
         db = psycopg2.connect("dbname={}".format(dbname))
@@ -11,6 +12,7 @@ def connect(dbname="news"):
         print("Unable to Connect to Database")
 
 """Next Five statments include basic stats about the articles and authors """
+
 
 def popular_article():
     """Prints the three most popular articles of all time"""
@@ -34,6 +36,7 @@ def popular_authors():
     print "\nPopular Authors:\n"
     for i in range(0, len(result), 1):
         print "\"" + result[i][0] + "\" - " + str(result[i][1]) + " views"
+
 
 def least_popular_article():
     """Prints the three least viewed articles"""
